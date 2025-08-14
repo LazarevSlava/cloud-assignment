@@ -28,7 +28,7 @@ curl -i -X GET "https://<invoke-id>.execute-api.eu-central-1.amazonaws.com/dev/c
 
 ### Screenshots:
 
--   ![EventBridge Rule](docs/mission3_eventbridge_rule.png)
--   ![Step Functions Execution](docs/mission3_stepfunctions_execution.png)
--   ![CloudWatch Logs](docs/mission3_cloudwatch_logs.png)
--   ![API Gateway Test](docs/mission3_api_gateway_test.png)
+-   ![EventBridge Rule](./screenshots/mission3_eventbridge_rule.png)
+-   ![Step Functions Execution](./screenshots/mission3_stepfunctions_execution.png)
+-   ![CloudWatch Logs](./screenshots/mission3_cloudwatch_logs.png)
+-   ![API Gateway Test](./screenshots/mission3_api_gateway_test.png)
