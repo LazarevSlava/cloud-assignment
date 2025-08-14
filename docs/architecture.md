@@ -3,30 +3,30 @@
 ```mermaid
 flowchart LR
   subgraph Client
-    A[React SPA \n S3 (private) + CloudFront (HTTPS)]
+    A["React SPA<br>S3 (private) + CloudFront (HTTPS)"]
   end
 
   subgraph API
-    B[API Gateway (REST)\nUsage plan + API key]
-    C1[Lambda: put_customer_id]
-    C2[Lambda: get_customer_id]
-    C3[Lambda: delete_customer_id]
+    B["API Gateway (REST)<br>Usage plan + API key"]
+    C1["Lambda: put_customer_id"]
+    C2["Lambda: get_customer_id"]
+    C3["Lambda: delete_customer_id"]
   end
 
   subgraph Data
-    D[(DynamoDB\ncustomer_ids)]
+    D[("DynamoDB<br>customer_ids")]
   end
 
   subgraph Events
-    E[EventBridge Rule\ncustomer-created-to-sfn]
-    F[Step Functions\nState machine]
-    V[Lambda: validate_id]
-    L[Lambda: log_event]
-    A2[Lambda: add_to_table]
+    E["EventBridge Rule<br>customer-created-to-sfn"]
+    F["Step Functions<br>State machine"]
+    V["Lambda: validate_id"]
+    L["Lambda: log_event"]
+    A2["Lambda: add_to_table"]
   end
 
   subgraph Observability
-    CW[CloudWatch Logs & Metrics]
+    CW["CloudWatch Logs & Metrics"]
   end
 
   A -->|HTTPS| B
@@ -54,7 +54,6 @@ flowchart LR
   V --> CW
   L --> CW
   A2 --> CW
-```
 
 **Notes**
 
@@ -64,3 +63,4 @@ flowchart LR
 -   EventBridge rule forwards `customer.added` events to a Step Functions state machine.
 -   Step Functions orchestrates three lambdas: `validate_id` → `log_event` _or_ `add_to_table`.
 -   All services emit logs/metrics to CloudWatch for troubleshooting and alarms.
+```
