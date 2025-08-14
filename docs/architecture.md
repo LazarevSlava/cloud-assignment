@@ -57,9 +57,10 @@ flowchart LR
 ```
 
 **Notes**
-- Frontend is a static React app hosted on S3 and served via CloudFront (OAC/OAI to keep the bucket private).
-- API Gateway is secured with an API key and a usage plan (throttling).
-- Lambda functions use a least‑privilege IAM role (DynamoDB access; `events:PutEvents` for `put_customer_id`).
-- EventBridge rule forwards `customer.added` events to a Step Functions state machine.
-- Step Functions orchestrates three lambdas: `validate_id` → `log_event` *or* `add_to_table`.
-- All services emit logs/metrics to CloudWatch for troubleshooting and alarms.
+
+-   Frontend is a static React app hosted on S3 and served via CloudFront (OAC/OAI to keep the bucket private).
+-   API Gateway is secured with an API key and a usage plan (throttling).
+-   Lambda functions use a least‑privilege IAM role (DynamoDB access; `events:PutEvents` for `put_customer_id`).
+-   EventBridge rule forwards `customer.added` events to a Step Functions state machine.
+-   Step Functions orchestrates three lambdas: `validate_id` → `log_event` _or_ `add_to_table`.
+-   All services emit logs/metrics to CloudWatch for troubleshooting and alarms.
