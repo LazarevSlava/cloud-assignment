@@ -1,0 +1,15 @@
+@import 'tailwindcss';
+@import 'tailwindcss';
+
+@theme {
+    --color-cz-ink: #15102b;
+    --color-cz-deep: #26164a;
+    --color-cz-mid: #3a1f6a;
+    --color-cz-violet: #5a2fa3;
+
+    --color-cz-orange: #ff9f1a;
+    --color-cz-yellow: #ffc62a;
+
+    --color-cz-white: #ffffff;
+    --color-cz-muted: #c7c4d9;
+}
